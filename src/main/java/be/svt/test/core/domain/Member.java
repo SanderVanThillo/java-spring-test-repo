@@ -2,8 +2,6 @@ package be.svt.test.core.domain;
 
 import java.time.LocalDate;
 import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Member {
     private String firstName;
@@ -12,16 +10,16 @@ public class Member {
     private Address address;
     private String email;
     private Club club;
-    private Set<Team> teams;
+    private Team team;
 
-    public Member(String firstName, String lastName, LocalDate birthDate, Address address, String email, Club club, Set<Team> teams) {
+    public Member(String firstName, String lastName, LocalDate birthDate, Address address, String email, Club club, Team team) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
         this.address = address;
         this.email = email;
         this.club = club;
-        this.teams = teams;
+        this.team = team;
     }
 
     public String getFirstName() {
@@ -72,12 +70,12 @@ public class Member {
         this.club = club;
     }
 
-    public Set<Team> getTeams() {
-        return teams;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setTeams(Set<Team> teams) {
-        this.teams = teams;
+    public void setTeams(Team team) {
+        this.team = team;
     }
 
     @Override
@@ -105,7 +103,7 @@ public class Member {
                 ", address=" + address +
                 ", email='" + email + '\'' +
                 ", club=" + club.getName() +
-                ", teams=" + teams.stream().map(Team::getName).collect(Collectors.toSet()) +
+                ", teams=" + team.getName() +
                 '}';
     }
 }
