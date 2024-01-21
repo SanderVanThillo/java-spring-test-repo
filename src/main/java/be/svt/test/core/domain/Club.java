@@ -1,5 +1,6 @@
 package be.svt.test.core.domain;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -15,6 +16,10 @@ public class Club {
         this.address = address;
         this.teams = teams;
         this.members = members;
+    }
+
+    public Club (String name, Address address) {
+        this(name, address, new HashSet<>(), new HashSet<>());
     }
 
     public String getName() {
@@ -41,12 +46,20 @@ public class Club {
         this.teams = teams;
     }
 
+    public void addTeam(Team team) {
+        teams.add(team);
+    }
+
     public Set<Member> getMembers() {
         return members;
     }
 
     public void setMembers(Set<Member> members) {
         this.members = members;
+    }
+
+    public void addMember(Member member) {
+        members.add(member);
     }
 
     @Override
